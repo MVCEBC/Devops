@@ -75,7 +75,7 @@
                         "IpProtocol": "tcp",
                         "FromPort": 80,
                         "ToPort": 80,
-                        "CidrIp": "192.168.0.0/16"
+                        "CidrIp": "0.0.0.0/0"
                     }
                 ]
             },
