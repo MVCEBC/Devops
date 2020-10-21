@@ -44,7 +44,7 @@
                 },
                 "osProfile": {
                     "computerName": "[parameters('virtualMachines_new_subs_vm_name')]",
-                    "adminUsername": "Sowmya",
+                    "adminUsername": "Boub",
                     "windowsConfiguration": {
                         "provisionVMAgent": true,
                         "enableAutomaticUpdates": true
