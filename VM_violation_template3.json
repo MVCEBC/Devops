@@ -1,0 +1,112 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "virtualMachines_new_subs_vm_name": {
+            "defaultValue": "new-subs-vm",
+            "type": "String"
+        },
+        "disks_new_subs_vm_OsDisk_1_5dea249bccf34f13bd3b836b4f85a018_externalid": {
+            "defaultValue": "/subscriptions/1358544c-6517-447b-b181-136f9ab34d9f/resourceGroups/resource-group-new-subscription/providers/Microsoft.Compute/disks/new-subs-vm_OsDisk_1_5dea249bccf34f13bd3b836b4f85a018",
+            "type": "String"
+        },
+        "networkInterfaces_new_subs_vm520_externalid": {
+            "defaultValue": "/subscriptions/1358544c-6517-447b-b181-136f9ab34d9f/resourceGroups/resource-group-new-subscription/providers/Microsoft.Network/networkInterfaces/new-subs-vm520",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "type": "Microsoft.Compute/virtualMachines",
+            "apiVersion": "2019-03-01",
+            "name": "[parameters('virtualMachines_new_subs_vm_name')]",
+            "location": "southindia",
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_DS2_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsDesktop",
+                        "offer": "Windows-10",
+                        "sku": "RS3-Pro",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_new_subs_vm_name'), '_OsDisk_1_5dea249bccf34f13bd3b836b4f85a018')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "diskSizeGB": 127
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_new_subs_vm_name')]",
+                    "adminUsername": "Sowmya",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": false,
+                        "enableAutomaticUpdates": false
+                    },
+                    "secrets": [],
+                    "allowExtensionOperations": true
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[parameters('networkInterfaces_new_subs_vm520_externalid')]"
+                        }
+                    ]
+                },
+                "diagnosticsProfile": {
+                    "bootDiagnostics": {
+                        "enabled": true,
+                        "storageUri": "https://resourcegroupnewsubscrip.blob.core.windows.net/"
+                    }
+                },
+                "licenseType": "Windows_Client"
+            }
+        }
+        {
+    "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "resources": [{
+	  "name": "testNSG-Template",
+	  "type": "Microsoft.Network/networkSecurityGroups",
+	  "apiVersion": "2018-11-01",
+	  "location": "westeurope",
+	  "tags": {},
+	  "properties": {
+	    "securityRules": [
+	      {
+	        "id": "/subscriptions/dc960d72-efdf-4b89-adb8-4c78eb969c83/resourceGroups/config-audit-resource-group/providers/Microsoft.Network/networkSecurityGroups/testNSG-Template/securityRules/testRule1",
+	        "properties": {
+	          "protocol": "UDP",
+	          "sourcePortRange": "3389",
+	          "destinationPortRange": "3389",
+	          "sourceAddressPrefix": "*",
+	          "destinationAddressPrefix": "*",
+	          "access": "Allow",
+	          "priority": 100,
+	          "direction": "Inbound"
+	        },
+	        "name": "test-RDP"
+	      },
+	      {
+	        "id": "/subscriptions/dc960d72-efdf-4b89-adb8-4c78eb969c83/resourceGroups/config-audit-resource-group/providers/Microsoft.Network/networkSecurityGroups/testNSG-Template/securityRules/testRule2",
+	        "properties": {
+	          "protocol": "UDP",
+	          "sourcePortRange": "22",
+	          "destinationPortRange": "22",
+	          "sourceAddressPrefix": "*",
+	          "destinationAddressPrefix": "*",
+	          "access": "Allow",
+	          "priority": 101,
+	          "direction": "Inbound"
+	        },
+	        "name": "test-SSH"
+	      },
+    ]
+}
