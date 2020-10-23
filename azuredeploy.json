@@ -67,7 +67,7 @@
   "variables": { },
   "resources": [
     {
-      "name": "[parameters('appBaseName')]",
+      "name": "[parameters('D1')]",
       "type": "Microsoft.Web/serverfarms",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-08-01",
@@ -84,24 +84,24 @@
       }
     },
     {
-      "name": "[parameters('appBaseName')]",
+      "name": "[parameters('D1')]",
       "type": "Microsoft.Web/sites",
       "location": "[resourceGroup().location]",
       "apiVersion": "2015-08-01",
       "dependsOn": [
-        "[resourceId('Microsoft.Web/serverfarms', parameters('appBaseName'))]"
+        "[resourceId('Microsoft.Web/serverfarms', parameters('D1'))]"
       ],
       "tags": {
-        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('appBaseName')))]": "Resource",
+        "[concat('hidden-related:', resourceId('Microsoft.Web/serverfarms', parameters('D1')))]": "Resource",
         "displayName": "appBase"
       },
       "properties": {
-        "name": "[parameters('appBaseName')]",
-        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('appBaseName'))]"
+        "name": "[parameters('D1')]",
+        "serverFarmId": "[resourceId('Microsoft.Web/serverfarms', parameters('D1'))]"
       }
     },
     {
-      "name": "[parameters('appBaseName')]",
+      "name": "[parameters('D1')]",
       "type": "Microsoft.Sql/servers",
       "location": "[resourceGroup().location]",
       "apiVersion": "2014-04-01-preview",
@@ -120,7 +120,7 @@
           "location": "[resourceGroup().location]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', parameters('appBaseName'))]"
+            "[resourceId('Microsoft.Sql/servers', parameters('D1'))]"
           ],
           "properties": {
             "startIpAddress": "0.0.0.0",
@@ -128,12 +128,12 @@
           }
         },
         {
-          "name": "[parameters('appBaseName')]",
+          "name": "[parameters('D1')]",
           "type": "databases",
           "location": "[resourceGroup().location]",
           "apiVersion": "2014-04-01-preview",
           "dependsOn": [
-            "[resourceId('Microsoft.Sql/servers', parameters('appBaseName'))]"
+            "[resourceId('Microsoft.Sql/servers', parameters('D1'))]"
           ],
           "tags": {
             "displayName": "appbase"
