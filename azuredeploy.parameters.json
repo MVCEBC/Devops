@@ -3,16 +3,16 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "appBaseName": {
-      "value": "#arm_appBaseName#"
+      "value": "#mydatabase"
     },
     "appBaseSkuName": {
-      "value": "#arm_appBaseSkuName#"
+      "value": "P3"
     },
     "appbaseAdminLogin": {
-      "value": "#arm_sqlUserName#"
+      "value": "root"
     },
     "appbaseAdminLoginPassword": {
-      "value": "#arm_sqlPassword#"
+      "value": "#!!Demo123!!"
     },
     "appbaseCollation": {
       "value": "SQL_Latin1_General_CP1_CI_AS"
