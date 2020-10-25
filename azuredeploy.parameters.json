@@ -1,27 +1,40 @@
 {
-  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
-  "contentVersion": "1.0.0.0",
-  "parameters": {
-    "appBaseName": {
-      "value": "#mydatabase"
-    },
-    "appBaseSkuName": {
-      "value": "Standard"
-    },
-    "appbaseAdminLogin": {
-      "value": "root"
-    },
-    "appbaseAdminLoginPassword": {
-      "value": "#!!Demo123!!"
-    },
-    "appbaseCollation": {
-      "value": "SQL_Latin1_General_CP1_CI_AS"
-    },
-    "appbaseEdition": {
-      "value": "Basic"
-    },
-    "appbaseRequestedServiceObjectiveName": {
-      "value": "Basic"
-    }
-  }
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"appBaseName": {
+			"value": "#mydatabase"
+		},
+		"appBaseSkuName": {
+			"value": [
+				"F1",
+				"D1",
+				"B1",
+				"B2",
+				"B3",
+				"S1",
+				"S2",
+				"S3",
+				"P1",
+				"P2",
+				"P3",
+				"P4"
+			]
+		},
+		"appbaseAdminLogin": {
+			"value": "root"
+		},
+		"appbaseAdminLoginPassword": {
+			"value": "#!!Demo123!!"
+		},
+		"appbaseCollation": {
+			"value": "SQL_Latin1_General_CP1_CI_AS"
+		},
+		"appbaseEdition": {
+			"value": "Basic"
+		},
+		"appbaseRequestedServiceObjectiveName": {
+			"value": "Basic"
+		}
+	}
 }
