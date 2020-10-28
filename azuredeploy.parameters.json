@@ -6,7 +6,7 @@
 			"value": "#mydatabase"
 		},
 		"appBaseSkuName": {
-			"value": "S1"
+			"value": "Standard_LRS"
 		},
 		"appbaseAdminLogin": {
 			"value": "root"
